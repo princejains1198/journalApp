@@ -1,0 +1,94 @@
+[1mdiff --git a/pom.xml b/pom.xml[m
+[1mindex 9ddc72b..8459752 100644[m
+[1m--- a/pom.xml[m
+[1m+++ b/pom.xml[m
+[36m@@ -15,6 +15,8 @@[m
+ 	<description>E2EE Journal App</description>[m
+ 	<properties>[m
+ 		<java.version>1.8</java.version>[m
+[32m+[m		[32m<sonar.organization>engineerings-digest</sonar.organization>[m
+[32m+[m		[32m<sonar.host.url>https://sonarcloud.io</sonar.host.url>[m
+ 	</properties>[m
+ 	<dependencies>[m
+ 		<dependency>[m
+[1mdiff --git a/src/main/resources/logback.xml b/src/main/resources/logback.xml[m
+[1mindex 0bbb42c..876f012 100644[m
+[1m--- a/src/main/resources/logback.xml[m
+[1m+++ b/src/main/resources/logback.xml[m
+[36m@@ -1,43 +1,43 @@[m
+[31m-<!--<configuration>-->[m
+[32m+[m[32m<configuration>[m
+ [m
+[31m-<!--    <appender name = "myConsoleAppender" class = "ch.qos.logback.core.ConsoleAppender">-->[m
+[32m+[m[32m    <appender name = "myConsoleAppender" class = "ch.qos.logback.core.ConsoleAppender">[m
+[32m+[m[32m        <encoder>[m
+[32m+[m[32m            <pattern>[m
+[32m+[m[32m                %d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} -- %msg  %n[m
+[32m+[m[32m            </pattern>[m
+[32m+[m[32m        </encoder>[m
+[32m+[m[32m    </appender>[m
+[32m+[m
+[32m+[m[32m<!--    <appender name = "myFileAppender" class = "ch.qos.logback.core.FileAppender">-->[m
+ <!--        <encoder>-->[m
+ <!--            <pattern>-->[m
+ <!--                %d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} &#45;&#45; %msg  %n-->[m
+ <!--            </pattern>-->[m
+ <!--        </encoder>-->[m
+[31m-<!--    </appender>-->[m
+[31m-[m
+[31m-<!--&lt;!&ndash;    <appender name = "myFileAppender" class = "ch.qos.logback.core.FileAppender">&ndash;&gt;-->[m
+[31m-<!--&lt;!&ndash;        <encoder>&ndash;&gt;-->[m
+[31m-<!--&lt;!&ndash;            <pattern>&ndash;&gt;-->[m
+[31m-<!--&lt;!&ndash;                %d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} &#45;&#45; %msg  %n&ndash;&gt;-->[m
+[31m-<!--&lt;!&ndash;            </pattern>&ndash;&gt;-->[m
+[31m-<!--&lt;!&ndash;        </encoder>&ndash;&gt;-->[m
+[31m-<!--&lt;!&ndash;        <file>&ndash;&gt;-->[m
+[31m-<!--&lt;!&ndash;            journalApp.log&ndash;&gt;-->[m
+[31m-<!--&lt;!&ndash;        </file>&ndash;&gt;-->[m
+[31m-<!--&lt;!&ndash;    </appender>&ndash;&gt;-->[m
+[31m-[m
+[31m-<!--    <appender name = "myFileAppender" class = "ch.qos.logback.core.rolling.RollingFileAppender">-->[m
+ <!--        <file>-->[m
+ <!--            journalApp.log-->[m
+ <!--        </file>-->[m
+[31m-<!--        <rollingPolicy class = "ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">-->[m
+[31m-<!--            <fileNamePattern>journalApp-%d{yyyy-MM-dd_HH-mm}.%i.log</fileNamePattern>-->[m
+[31m-<!--            <maxFileSize>10MB</maxFileSize>-->[m
+[31m-<!--            <maxHistory>20</maxHistory>-->[m
+[31m-<!--        </rollingPolicy>-->[m
+[31m-<!--        <encoder>-->[m
+[31m-<!--            <pattern>-->[m
+[31m-<!--                %d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} &#45;&#45; %msg  %n-->[m
+[31m-<!--            </pattern>-->[m
+[31m-<!--        </encoder>-->[m
+ <!--    </appender>-->[m
+ [m
+[31m-<!--    <root level = "INFO">-->[m
+[31m-<!--        <appender-ref ref = "myConsoleAppender" />-->[m
+[31m-<!--        <appender-ref ref = "myFileAppender" />-->[m
+[31m-<!--    </root>-->[m
+[32m+[m[32m    <appender name = "myFileAppender" class = "ch.qos.logback.core.rolling.RollingFileAppender">[m
+[32m+[m[32m        <file>[m
+[32m+[m[32m            journalApp.log[m
+[32m+[m[32m        </file>[m
+[32m+[m[32m        <rollingPolicy class = "ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">[m
+[32m+[m[32m            <fileNamePattern>journalApp-%d{yyyy-MM-dd_HH-mm}.%i.log</fileNamePattern>[m
+[32m+[m[32m            <maxFileSize>10MB</maxFileSize>[m
+[32m+[m[32m            <maxHistory>20</maxHistory>[m
+[32m+[m[32m        </rollingPolicy>[m
+[32m+[m[32m        <encoder>[m
+[32m+[m[32m            <pattern>[m
+[32m+[m[32m                %d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} -- %msg  %n[m
+[32m+[m[32m            </pattern>[m
+[32m+[m[32m        </encoder>[m
+[32m+[m[32m    </appender>[m
+[32m+[m
+[32m+[m[32m    <root level = "INFO">[m
+[32m+[m[32m        <appender-ref ref = "myConsoleAppender" />[m
+[32m+[m[32m        <appender-ref ref = "myFileAppender" />[m
+[32m+[m[32m    </root>[m
+ [m
+[31m-<!--</configuration>-->[m
+\ No newline at end of file[m
+[32m+[m[32m</configuration>[m
+\ No newline at end of file[m
