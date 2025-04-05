@@ -11,6 +11,10 @@ server:
   servlet:
     context-path: /journal
 
+weather:
+  api:
+    key: 7df8c6159854bab2a4ea8096e9136f8b
+
 #logging:
 #  level:
 #    net:
