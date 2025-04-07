@@ -1,7 +1,7 @@
 package net.engineeringdigest.journalApp.config;
 
-//import io.jsonwebtoken.Jwt;
-//import net.engineeringdigest.journalApp.filter.JwtFilter;
+import io.jsonwebtoken.Jwt;
+import net.engineeringdigest.journalApp.filter.JwtFilter;
 import net.engineeringdigest.journalApp.service.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -24,22 +24,8 @@ public class SpringSecurity extends WebSecurityConfigurerAdapter {
     @Autowired
     private UserDetailsServiceImpl userDetailsService;
 
-//    @Autowired
-//    private JwtFilter jwtFilter;
-
-//    @Override
-//    protected void configure(HttpSecurity http) throws Exception {
-//        http
-//                .authorizeRequests()
-//                .antMatchers("/journal/**","/user/**").authenticated()
-//                .antMatchers("/admin/**").hasRole("ADMIN")
-//                .anyRequest().permitAll();
-//
-//        http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-//                .and()
-//                .csrf().disable();
-//        http.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
-//    }
+    @Autowired
+    private JwtFilter jwtFilter;
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -47,14 +33,28 @@ public class SpringSecurity extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/journal/**","/user/**").authenticated()
                 .antMatchers("/admin/**").hasRole("ADMIN")
-                .anyRequest().permitAll()
-                .and()
-                .httpBasic();
+                .anyRequest().permitAll();
 
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .csrf().disable();
+        http.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
     }
+
+//    @Override
+//    protected void configure(HttpSecurity http) throws Exception {
+//        http
+//                .authorizeRequests()
+//                .antMatchers("/journal/**","/user/**").authenticated()
+//                .antMatchers("/admin/**").hasRole("ADMIN")
+//                .anyRequest().permitAll()
+//                .and()
+//                .httpBasic();
+//
+//        http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+//                .and()
+//                .csrf().disable();
+//    }
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
