@@ -1,9 +1,27 @@
+weather:
+  api:
+    key: 7df8c6159854bab2a4ea8096e9136f8b
 spring:
+  redis:
+    host: redis-10413.crce182.ap-south-1-1.ec2.redns.redis-cloud.com
+    port: 10413
+    password: fFZxagYG0YOC3MnGdVvrrqqAWyM4bk84
   data:
     mongodb:
       uri: mongodb+srv://root:root@cluster0.h1xys.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
       database: journaldb
       auto-index-creation: true
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: pninja346@gmail.com
+    password: rdgb zgew tasm gepw
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
 
 
 server:
@@ -11,9 +29,6 @@ server:
   servlet:
     context-path: /journal
 
-weather:
-  api:
-    key: 7df8c6159854bab2a4ea8096e9136f8b
 
 #logging:
 #  level:
