@@ -2,10 +2,24 @@ weather:
   api:
     key: 7df8c6159854bab2a4ea8096e9136f8b
 spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 1006255346629-bf6mb8j68fq5r7v51tgs8cqc7d1kiotv.apps.googleusercontent.com
+            client-secret: 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
+  main:
+    allow-circular-references: true
+  server:
+    port: 8080
+    servlet:
+    context-path: /journal
   redis:
-    host: redis-10413.crce182.ap-south-1-1.ec2.redns.redis-cloud.com
-    port: 10413
-    password: fFZxagYG0YOC3MnGdVvrrqqAWyM4bk84
+    data:
+      host: redis-10413.crce182.ap-south-1-1.ec2.redns.redis-cloud.com
+      port: 10413
+      password: fFZxagYG0YOC3MnGdVvrrqqAWyM4bk84
   data:
     mongodb:
       uri: mongodb+srv://root:root@cluster0.h1xys.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
